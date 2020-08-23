@@ -1,10 +1,15 @@
 from itertools import combinations
-
-class Solution:
-    def maxArea(self, height: List[int]) -> int:
+class Solution(object):
+    def maxArea(self, height):
         max_area = 0
-        length = len(height)
-        itmes = [i for i in range(length)]
-        comb_lst = list(combinations(items, 2))
+        a = len(height)
+        index = [ i for i in range(a)]
+        comb_lst  = list(combinations(index, 2))
+        print(comb_lst)
+        for i in comb_lst:
+            fir_idx = i[0]
+            sec_idx = i[1]
 
-    print(maxArea([1,8,6,2,5,4,8,3,7]))
+        return max_area
+    
+
