@@ -1,15 +1,17 @@
-from itertools import combinations
 class Solution(object):
     def maxArea(self, height):
-        max_area = 0
-        a = len(height)
-        index = [ i for i in range(a)]
-        comb_lst  = list(combinations(index, 2))
-        print(comb_lst)
-        for i in comb_lst:
-            fir_idx = i[0]
-            sec_idx = i[1]
+        left = 0
+        right = len(height) -1
+        max_area = (right-left) * min(height[left], height[right])
+        while left < right:
+            if height[left] <= height[right]:
+                left += 1
+            else:
+                right -=1
+            max_area = max(max_area, (right-left) * min(height[left], height[right]))
 
         return max_area
-    
+
+sol = Solution()
+print('answer =', sol.maxArea(height = [1,8,6,2,5,4,8,3,7]))
 
